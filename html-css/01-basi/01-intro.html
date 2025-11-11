@@ -1,0 +1,147 @@
+<!-- Il tag DOCTYPE definisce il documento come un file HTML, così che il browser possa interpretarlo correttamente -->
+<!DOCTYPE html>
+<!-- Il tag HTML è il nostro "root tag" che contiene tutto il nostro documento -->
+<html lang="it">
+<!-- Il tag HEAD contiene tutta una serie di tag che servono a fornire informazioni extra sul sito, come meta-dati o il titolo della pagina. Tutto ciò che viene riportato nella HEAD del documento non verrà visualizzato sulla pagina renderizzata dal browser -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Il tag TITLE riporta il titolo della pagina. Importante per la SEO -->
+    <title>HTML & CSS - Basi 01 - Intro</title>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<!-- Il tag BODY contiene tutto ciò che verrà visualizzato dagli utenti che visitano la nostra pagina -->
+<body id="top">
+    <h1>HTML & CSS - Basi 01 - Intro</h1>
+    <h2>Titolo secondario</h2>
+    <h3>Titolo di terzo livello</h3>
+    <h4>Titolo di quarto livello</h4>
+    <h5>Titolo di quinto livello</h5>
+    <h6>Titolo di sesto livello</h6>
+
+    <p>
+        L'HTML è un linguaggio di markup e non di programmazione. Si tratta quindi di un sistema di annoptazioni utilizzato per definire la struttura e il layout di un documento. Markup infatti è un termine che si riferisce a un insieme di tag o annotazioni ineriti in un testo per specificare come questo debba essere visualizzato o interpretato.
+    </p>
+
+    <p>
+        L'HTML viene usato per strutturare il contenuto di una pagina web (immagini, testi, form, ecc). <br>
+        Per farlo utilizziamo quelli che si chiamano tag HTML.
+    </p>
+
+    <p>
+        I tag rappresentano differenti tipi di contenuto o informazioni all'interno di una pagina web. Per esempio, avremo un tag apposito per le immagini, uno per i form, uno per i paragrafi e così via.
+    </p>
+
+    <p>
+        Un elemento HTML è composto da un tag di apertura, uno di chiusura e del contenuto compreso tra i due. La differenza tra apertura e chiusura è data dallo slash che precede il nome del tag nella chiusura.
+    </p>
+
+    <p>
+        <strong>I TAG VANNO SEMPRE CHIUSI!</strong>
+    </p>
+
+    <p>
+        Esistono anche dei tag (pochi) che non hanno bisogno di una chiusura, in quanto autoconclusivi, infatti non contengono nulla al loro interno.
+    </p>
+
+    <!-- Il tag HR, Horizontal Rule, è un tag autoconclusivo che crea una riga divisoria -->
+    <hr>
+
+    <p>
+        <strong>Il tag STRONG</strong> rende porzioni di testo in grassetto e comunica al browser che si tratta di una parte importante del contenuto. <br>
+        <b>Il tag B</b> rende porzioni di testo in grassetto, ma senza conferirgli alcuna importanza aggiuntiva, se non quella visiva. <br>
+        <em>Il tag EM</em> enfatizza una porzione di testo rendendola visivamente scritta in corsivo e dice al browser che questo testo è importante. <br>
+        <i>Il tag I</i> enfatizza solo visivamente una porzione di testo rendendola scritta in corsivo. <br>
+        <u>Il tag U</u> sottolinea il testo compreso al suo interno.
+    </p>
+
+    <hr>
+
+    <!-- 
+        Liste ordinate e non ordinate.
+        È possibile creare delle liste puntate o numerate utilizzando i corretti tag HTML.
+
+        Questi sono UL e OL, rispettivamente Unordered List e Ordered List. Comunicano al browser che ciò che contengono è una lista. Ogni elemento della lista viene contenuto all'interno di un tag LI, List Item, e gli LI sono gli unici tag accettati come figli diretti di UL e OL.
+    -->
+    <ul>
+        <li>Mario</li>
+        <li>Luigi</li>
+        <li>Yoshi</li>
+    </ul>
+
+    <ol>
+        <li>Toad</li>
+        <li>Peach</li>
+        <li>Bowser</li>
+        <li>Altri personaggi:
+            <ul>
+                <li>Daisy</li>
+                <li>Bowser Jr.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <hr>
+
+    <!--
+        Il tag DIV è un contenitore generico che divide il contenuto in sezioni per raggruppare elementi che ha senso accostare tra loro.
+        Viene utilizzato molto per creare layout in combinazione con il CSS.
+        Non ha alcun effetto visivo.
+    -->
+    <div>
+        Sono un tag DIV
+    </div>
+
+    <!--
+        Il tag SPAN è simile a un DIV, ma non si comporta nella stessa maniera.
+        Viene utilizzato per aggiungere CSS a una porzione di testo o ad altri elementi.
+    -->
+    <span>Sono un tag SPAN</span>
+
+    <hr>
+
+    <!--
+        Il tag IMG è un tag autoconclusivo che permete di visualizzare un'immagine all'interno della pagina.
+    
+        Per dire al browser che immagine debba essere renderizzata, dobbiamo usare un ATTRIBUTO.
+
+        Gli attributi sono un qualcosa che si aggiunge all'interno del tag di apertura, nelle parentesi angolari dopo il nome del tag, per fornire al browser informazioni aggiuntive sull'elemento.
+
+        Assegnando al tag IMG un attributo src (source) possiamo dire al browser dove andare a trovare l'immagine da renderizzare sulla pagina. Assegnando all'attributo src come valore il percorso dell'immagine da utilizzare, il browser saprà che deve renderizza un'immagine che si trova esattamente dove gli abbiamo specificato nell'src.
+
+        È bene anche utilizzare l'attributo alt (ALTernative text) che fornisce una descrizione tetuale dell'immagine. Questa serve in caso l'immagine non possa essere renderizzata sulla pagina e, ancor più importante, a essere riconosciuta da lettori di pagine web per ipovedenti.
+    -->
+    <img src="img/GattoCucciolo.jpg" width="300" alt="Immagine di un gattino arancione">
+
+    <hr>
+
+    <!--
+        Un altro tag che necessita sempre di attributi è il tag A (Àncora). Questi tag servono a creare link a altre pagine o altri siti.
+
+        Il tag A ha bisogno dell'attributo href (Hyperlink Reference) il cui valore indica la pagina o il sito a cui il link deve puntare.
+
+        È bene utilizzare anche l'attributo title, che riporta un messaggio per l'utente che indica dove andrà a finire cliccando sul link.
+
+        Infine, se il link punta a un sito esterno al vostro, conviene sempre usare l'attributo target con un valore di _blank, in modo da far aprire il sito esterno in una nuova tab del browser. In questo modo non perdiamo l'utente che si trova sul nostro sito.
+    -->
+    <a href="https://www.google.com" title="Link al sito di Google" target="_blank">Vai al sito di Google</a> <br>
+    <a href="02-form.html" title="Vai alla prossima lezione">Vai alla prossima lezione</a> <br>
+    <a href="#top">Torna all'inizio della pagina</a>
+
+    <hr>
+
+    <!--
+        Anche se sconsigliatissimo, è possibile utilizzare l'attributo style per dare uno stile a un elemento. All'interno di questo attributo si può scrivere in CSS tutte le regole di stile che vogliamo assegnare all'elemento.
+    -->
+    <p style="color: orange;">
+        Dammi uno stile diverso dagli altri :)
+    </p>
+
+</body>
+</html>
