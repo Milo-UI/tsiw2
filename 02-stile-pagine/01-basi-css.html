@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS - Stile pagine 01 - Basi di CSS</title>
+
+    <!-- Aggiungo del CSS utilizzando il tag STYLE direttamente nell'HTML -->
+    <!-- <style>
+        h1 {
+            color: orangered;
+        }
+
+        p {
+            color: green;
+        }
+    </style> -->
+
+    <!-- Collego a questa pagina un foglio di stile esterno da cui prendere tutte le regole CSS -->
+    <link rel="stylesheet" href="css/01-basi-css.css">
+</head>
+
+<body>
+
+    <!--
+        Se l'HTML serve a creare la struttura della pagina, il CSS si occupa di renderla presentabile.
+        Per farlo usiamo un foglio di stile (style sheet), ovvero un documento che contiene una lista di regole CSS che assegnano uno stile ai nostri elementi HTML.
+
+        Un set di regole CSS ha questo aspetto:
+
+        div {
+            color: red;
+            margin: 20px;
+        }
+
+        li {
+            font-weight: bold;
+        }
+
+        Ogni set è composto da:
+            - Selettore -> permette di definire quali elementi devono essere stilizzati.
+            - Parentesi graffe -> contengono tutte le regole di stile che gli elementi selezionati devono avere.
+            - Dichiarazione -> è una coppia chiave/valore che definisce come debba essere stilizzato l'elemento selezionato ed è composta da:
+                - Proprietà: rappresenta l'aspetto che si desidera modificare
+                - Valore: indica come deve essere modificata la proprietà. I valori possono essere colori, dimensioni, unità di misura o parole chiave.
+            Una dichiarazione termina sempre col punto e virgola.
+        
+        Ci sono 3 modi per aggiungere dello stile alla nostra pagina:
+            - Con un tag STYLE direttamente nell'HTML (sconsigliato)
+            - Direttamente sull'elemento interessato con l'attributo style (sconsigliato)
+            - Con un foglio di stile separato
+    -->
+
+    <!-- <h1 style="color: orangered;">HTML & CSS - Stile pagine 01 - Basi di CSS</h1> -->
+    <h1>HTML & CSS - Stile pagine 01 - Basi di CSS</h1>
+
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quidem ducimus consectetur fuga aut vitae fugiat ipsum magnam maxime dolor laboriosam, repellendus dolore recusandae alias obcaecati earum ea nostrum nulla!
+    </p>
+
+    <div>
+        <h2>Heading 2</h2>
+
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde repudiandae deleniti eum nam in, mollitia at quidem itaque commodi iusto facilis quia deserunt nihil voluptatum soluta facere incidunt similique non.
+        </p>
+
+        <ul>
+            <li>Voce 1</li>
+            <li>Voce 2</li>
+            <li>Voce 3</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

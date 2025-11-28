@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS - Basi 03 - Tag semantici e tag per i media</title>
+</head>
+<body>
+
+    <h1>HTML & CSS - Basi 03 - Tag semantici e tag per i media</h1>
+
+    <!-- --------------------------- HTML semantico ---------------------------- -->
+    <!--
+        L'HTML semantico è un metodo di scrittura del codice che utilizza tag specifici per definire chiaramente scopo e significato del loro contenuto.
+        Vantaggi:
+            - migliore accessibilità
+            - codice migliore per la SEO
+            - maggior chiarezza per gli sviluppatori
+    -->
+
+    <!-- Intestazione della pagina o di una sezione in cima alla pagina -->
+    <header></header>
+
+    <!-- Menù di navigazione -->
+    <nav></nav>
+
+    <!-- Contenuto principale della pagina -->
+    <main></main>
+
+    <!-- Contenuti secondari o correlati (pubblicità, box laterali, articoli simili, nav, ecc.) -->
+    <aside></aside>
+
+    <!-- Contenuto autonomo e riutilizzabile (articolo blog, scheda prodotto) -->
+    <article></article>
+
+    <!-- Raggruppamento tematico di contenuti -->
+    <section></section>
+
+    <!-- Chiusura della pagina -->
+    <footer></footer>
+
+    <!-- -------------------------------- MEDIA -------------------------------- -->
+    
+    <!-- Incorporare un video -->
+    <video src="video.mp4" controls autoplay muted loop>
+        <source src="video.webm" type="video/webm">
+        <source src="video.ogg" type="video/ogg">
+        Il tuo browser fa schifo e non supporta il tag video
+    </video>
+
+    <!-- Incorporare audio -->
+    <audio src="audio.mp3" controls autoplay muted loop>
+        <source src="audio.ogg" type="audio/ogg">
+        il tuo broser non supporta manco l'audio
+    </audio>
+
+    <!-- Incorporare contenuti esterni (altra pagina web, mappa, video di YT) -->
+    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ?si=2U7HCVIMRx-2BMXt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2817.988396671704!2d7.681586076686727!3d45.065746459935426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47886d6c24c94fcd%3A0x1745e2aae993e367!2sImmaginazione%20e%20Lavoro!5e0!3m2!1sit!2sit!4v1764351017092!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    
+</body>
+</html>
