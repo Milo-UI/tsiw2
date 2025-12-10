@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>HTML & CSS - Stile pagine 02 - Palette colori e variabili CSS</title>
+
+    <link rel="stylesheet" href="css/02-colori-variabili.css" />
+</head>
+<body>
+    <!--
+        1) Cos'è una palette di un sito
+        2) Come si organizza in modo professionale
+        3) Perché e come usare le variabili CSS
+        4) Differenza tra:
+            - colori "primitivi" (brand, neutrali, accenti)
+            - colori "semantici" (background, text, border, ecc.)
+        5) Come preparare anche stati e una base per dark mode
+    -->
+
+    <header class="site-header">
+        <div class="container">
+            <p class="eyebrow">HTML & CSS - Stile pagine 02</p>
+            <h1>Creare una palette di colori e usare le variabili CSS</h1>
+            <p class="lead">
+                Una mini guida pratica per capire come passare da una palette di colori a un sistema coerente di token usabile in tutto il progetto.
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Concetto di palette -->
+        <section class="section">
+            <div class="container">
+                <h2>1) Cos’è una palette (in pratica)</h2>
+
+                <!--
+                    Una palette non è solo "scelgo 3 bei colori".
+                    In un sito reale serve:
+
+                    - 1 colore di brand principale
+                    - 1-2 colori di supporto/secondari
+                    - un set di neutrali (grigi caldi/freddi)
+                    - colori di stato/feedback (success, warning, danger, info)
+                    - varianti di:
+                        * hover
+                        * active
+                        * focus
+                        * disabled
+                -->
+
+                <p>
+                    Una buona palette serve a mantenere coerenza visiva, migliorare leggibilità e accessibilità, e rendere il progetto più facile da mantenere. In un sito moderno, i colori diventano un piccolo “sistema” e non una collezione casuale.
+                </p>
+
+                <div class="note">
+                    <strong>Idea chiave:</strong> prima scegli i colori base, poi li trasformi in un sistema di utilizzo (token).
+                </div>
+            </div>
+        </section>
+
+        <!-- Colori primitivi -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2>2) Colori primitivi: la materia prima</h2>
+
+                <!--
+                    "Primitive colors" (o base colors):
+                    sono i colori grezzi del brand e i neutrali.
+
+                    Esempi di categorie tipiche:
+                    - brand
+                    - accent
+                    - neutrals / grayscale
+                    - feedback
+                -->
+
+                <p>
+                    I colori primitivi sono i blocchi base del tuo progetto: brand, accenti, grigi e colori di feedback. Non descrivono ancora <em>dove</em> verranno usati.
+                </p>
+
+                <div class="palette-grid">
+                    <div class="swatch">
+                        <span class="chip chip-brand-500"></span>
+                        <div class="swatch-meta">
+                            <strong>Brand 500</strong> <br>
+                            <span>--brand-500</span>
+                        </div>
+                    </div>
+
+                    <div class="swatch">
+                        <span class="chip chip-brand-700"></span>
+                        <div class="swatch-meta">
+                            <strong>Brand 700</strong> <br>
+                            <span>--brand-700</span>
+                        </div>
+                    </div>
+
+                    <div class="swatch">
+                        <span class="chip chip-accent-500"></span>
+                        <div class="swatch-meta">
+                            <strong>Accent 500</strong> <br>
+                            <span>--accent-500</span>
+                        </div>
+                    </div>
+
+                    <div class="swatch">
+                        <span class="chip chip-gray-100"></span>
+                        <div class="swatch-meta">
+                            <strong>Gray 100</strong> <br>
+                            <span>--gray-100</span>
+                        </div>
+                    </div>
+
+                    <div class="swatch">
+                        <span class="chip chip-gray-500"></span>
+                        <div class="swatch-meta">
+                            <strong>Gray 500</strong> <br>
+                            <span>--gray-500</span>
+                        </div>
+                    </div>
+
+                    <div class="swatch">
+                        <span class="chip chip-gray-900"></span>
+                        <div class="swatch-meta">
+                            <strong>Gray 900</strong> <br>
+                            <span>--gray-900</span>
+                        </div>
+                    </div>
+
+                    <div class="swatch">
+                        <span class="chip chip-success-500"></span>
+                        <div class="swatch-meta">
+                            <strong>Success</strong> <br>
+                            <span>--success-500</span>
+                        </div>
+                    </div>
+
+                    <div class="swatch">
+                        <span class="chip chip-danger-500"></span>
+                        <div class="swatch-meta">
+                            <strong>Danger</strong> <br>
+                            <span>--danger-500</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Token semantici -->
+        <section class="section">
+            <div class="container">
+                <h2>3) Token semantici: come userò quei colori</h2>
+
+                <!--
+                    Token semantici:
+                    invece di dire "usa brand-500",
+                    diciamo "questo è il colore del bottone principale".
+
+                    In pratica:
+                    --color-bg
+                    --color-surface
+                    --color-text
+                    --color-muted
+                    --color-border
+                    --color-primary
+                    --color-primary-hover
+                    ecc.
+
+                    Vantaggio enorme:
+                    se domani cambia il brand, non tocchi 300 componenti. Cambi 1 variabile semantica.
+                -->
+
+                <p>
+                    I token semantici descrivono un <strong>ruolo</strong>: sfondo, testo, bordi, CTA primaria, ecc. Sono quelli che userai davvero nei componenti UI.
+                </p>
+
+                <div class="note">
+                    <strong>Regola d’oro:</strong> nei componenti usa token semantici, non i primitivi direttamente.
+                </div>
+
+                <div class="semantic-demo">
+                    <article class="card">
+                        <h3>Card di esempio</h3>
+                        <p>
+                            Questa card usa variabili semantiche per background, bordo e testo. <br>
+                            Cambiando tema o palette, la card si aggiorna senza riscrivere regole.
+                        </p>
+                        <div class="row">
+                            <a class="btn btn-primary" href="#!">Azione primaria</a>
+                            <a class="btn btn-ghost" href="#!">Azione secondaria</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <h3>Messaggi di stato</h3>
+                        <p class="status status-success">
+                            Operazione completata correttamente.
+                        </p>
+                        <p class="status status-danger">
+                            C’è stato un errore. Riprova.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Perché variabili CSS -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2>4) Perché usare le variabili CSS</h2>
+
+                <!--
+                    Le variabili CSS (custom properties) sono utili perché:
+                    - Centralizzano le scelte di design
+                    - Rendono il codice scalabile
+                    - Facilitano i redesign
+                    - Rendono più semplice creare temi multipli
+                    - Migliorano coerenza e manutenzione
+
+                    Da ricordare:
+                    - Si definiscono con --nome: valore;
+                    - Si usano con var(--nome);
+                    - Possono essere sovrascritte in contesti specifici (es. dark mode o sezioni speciali).
+                -->
+
+                <ul class="checklist">
+                    <li>Coerenza: stessi colori ovunque senza errori manuali.</li>
+                    <li>Velocità: cambi palette in un punto solo.</li>
+                    <li>Scalabilità: più facile mantenere progetti grandi.</li>
+                    <li>Temi: base perfetta per light/dark mode.</li>
+                </ul>
+
+                <div class="code-like">
+                    <p><strong>Esempio mentale:</strong></p>
+                    <p>
+                        Invece di scrivere 50 volte <code>#3b82f6</code>,
+                        scrivo <code>var(--color-primary)</code>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dark mode senza JS -->
+        <section class="section">
+            <div class="container">
+                <h2>5) Base per dark mode (solo CSS)</h2>
+
+                <!--
+                    Qui introduciamo l'idea che le variabili possono cambiare quando cambia un attributo o una classe sul root.
+
+                    Esempio classico: :root { ... tema chiaro ... } [data-theme="dark"] { ... tema scuro ... }
+
+                    In un secondo step di corso si può aggiungere JavaScript per il toggle.
+                -->
+
+                <p>
+                    In questa demo trovi già una struttura pronta per supportare un tema scuro. Non serve JavaScript per capire il concetto: basta vedere come cambiano le variabili.
+                </p>
+
+                <div class="note">
+                    Prova in classe a ispezionare il CSS e vedere come
+                    <code>[data-theme="dark"]</code> sovrascrive le variabili.
+                </div>
+
+                <!--
+                    Un contenitore dimostrativo:
+                    assegnamo data-theme="dark" a questo blocco per mostrare un tema alternativo solo in un'area.
+
+                    Potete anche provare a dare l'attributo  data-theme="dark" al body per vedere l'intera pagina in modalità scura.
+                -->
+                <div class="theme-sandbox" data-theme="dark">
+                    <h3>Area demo tema scuro</h3>
+                    <p>
+                        Questa sezione usa lo stesso HTML e le stesse classi
+                        dei componenti sopra, ma con variabili diverse.
+                    </p>
+                    <div class="row">
+                        <a class="btn btn-primary" href="#!">Bottone</a>
+                        <a class="btn btn-ghost" href="#!">Secondario</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>
+                Materiale didattico: palette + variabili CSS.
+                Potete usare questa pagina come base per esercizi e redesign.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

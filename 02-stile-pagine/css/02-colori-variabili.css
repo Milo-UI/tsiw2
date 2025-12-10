@@ -1,0 +1,451 @@
+/*
+    PALETTE COLORI & CSS VARIABLES
+
+    1) Definire colori primitivi (base)
+    2) Definire token semantici (ruoli)
+    3) Usare token semantici nei componenti
+    4) Preparare stati e temi alternativi (dark)
+
+    NOTA:
+    Le variabili CSS si chiamano "custom properties".
+    Sono dinamiche e possono essere sovrascritte in specifici contesti.
+*/
+
+
+/*
+   1) RESET MINIMO E BASE TIPOGRAFICA
+*/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+}
+
+
+/*
+   2) COLORI PRIMITIVI (BASE COLORS)
+
+   Schema tipico:
+   - Brand: colore principale del marchio
+   - Accent: colore secondario per evidenze
+   - Grayscale: scala di neutrali
+   - Feedback: success/danger ecc.
+
+   Questi colori non dicono ancora "dove usarli".
+   Dicono "quali colori esistono nel progetto".
+*/
+
+:root {
+    /* BRAND (esempio) */
+    /* blu principale */
+    --brand-500: #3b82f6;
+    /* variante più scura, utile per hover/active */
+    --brand-700: #1d4ed8;
+
+    /* ACCENT (esempio) */
+    /* arancione di accento */
+    --accent-500: #f97316;
+
+    /* 
+        GRAYSCALE / NEUTRALI
+        In un progetto reale potresti avere 8-12 step.
+        Qui ne mettiamo pochi per semplicità.
+    */
+    --gray-100: #f8fafc;
+    --gray-200: #eef2f7;
+    --gray-500: #6b7280;
+    --gray-700: #374151;
+    --gray-900: #0f172a;
+
+    /*
+       FEEDBACK
+    */
+    --success-500: #22c55e;
+    --danger-500: #ef4444;
+
+
+    /* 
+       3) TOKEN SEMANTICI (USO REALE)
+
+       Qui assegniamo un ruolo ai colori.
+
+       Perché è importante:
+       - I componenti non dovrebbero dipendere da un colore "grezzo".
+       - Dovrebbero dipendere da un "ruolo" dell'interfaccia.
+
+       Esempio:
+       Non scrivere nei bottoni: background: var(--brand-500);
+       Scrivere: background: var(--color-primary);
+
+       Così se il brand cambia, tocchi questo set di variabili,
+       e TUTTO il sito si aggiorna.
+    */
+
+    /* Background e superfici */
+    --color-bg: var(--gray-100);
+    --color-surface: #ffffff;
+
+    /* Testi */
+    --color-text: var(--gray-900);
+    --color-muted: var(--gray-500);
+
+    /* Bordi */
+    --color-border: rgba(15, 23, 42, 0.12);
+
+    /* Primario (CTA principale) */
+    --color-primary: var(--brand-500);
+    --color-primary-hover: var(--brand-700);
+    --color-primary-contrast: #ffffff;
+
+    /* Accent (per dettagli, badge o highlight) */
+    --color-accent: var(--accent-500);
+
+    /* Feedback semantici */
+    --color-success: var(--success-500);
+    --color-danger: var(--danger-500);
+
+    /* Raggi e shadow "neutri" per uniformare estetica */
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+
+/*
+   4) TEMA SCURO (SOVRASCRITTURA VARIABILI)
+
+   Un pattern molto comune è usare un attributo:
+   [data-theme="dark"]
+
+   Questo permette:
+   - tema globale sull'html/body
+   - oppure tema locale su una sola sezione
+
+   Qui sovrascriviamo SOLO i token semantici.
+   I primitivi possono anche restare uguali
+   oppure cambiare se vuoi un brand diverso in dark mode.
+*/
+
+[data-theme="dark"] {
+    --color-bg: #0b1020;
+    --color-surface: #111827;
+
+    --color-text: #f8fafc;
+    --color-muted: #9aa4b2;
+
+    --color-border: rgba(248, 250, 252, 0.10);
+
+    --color-primary: #7aa2ff;
+    --color-primary-hover: #9bb8ff;
+    --color-primary-contrast: #0b1020;
+
+    --color-accent: #ff9a4d;
+
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+/* 5) LAYOUT DI BASE */
+
+.container {
+    width: min(1100px, 92vw);
+    margin-inline: auto;
+}
+
+.section {
+    padding: 3.5rem 0;
+}
+
+.section-alt {
+    background: color-mix(in srgb, var(--color-surface), var(--color-bg) 60%);
+}
+
+
+/* 6) HEADER & FOOTER */
+
+.site-header {
+    padding: 4rem 0 3rem;
+    background:
+        linear-gradient(135deg,
+            color-mix(in srgb, var(--color-primary), transparent 85%),
+            color-mix(in srgb, var(--color-accent), transparent 88%));
+}
+
+.eyebrow {
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin: 0 0 0.5rem;
+}
+
+h1 {
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
+    line-height: 1.15;
+    margin: 0 0 0.8rem;
+}
+
+.lead {
+    font-size: 1.05rem;
+    color: var(--color-muted);
+    max-width: 60ch;
+}
+
+.site-footer {
+    padding: 2.5rem 0 3.5rem;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-muted);
+}
+
+
+/* 7) TIPOGRAFIA SEZIONI */
+
+h2 {
+    font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+    margin: 0 0 1rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin: 0 0 0.6rem;
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+
+/* 8) COMPONENTI DIDATTICI */
+
+.note {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-primary);
+    padding: 1rem 1.1rem;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-soft);
+    margin: 1.2rem 0 1.8rem;
+}
+
+.code-like {
+    background: var(--color-surface);
+    border: 1px dashed var(--color-border);
+    padding: 1rem 1.1rem;
+    border-radius: var(--radius-sm);
+}
+
+code {
+    padding: 0.1em 0.35em;
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--color-bg), var(--color-surface) 50%);
+    border: 1px solid var(--color-border);
+}
+
+
+/* 9) GRIGLIE DI SWATCH (CHIP COLORE) */
+
+.palette-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+@media (max-width: 900px) {
+    .palette-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.swatch {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 0.9rem 1rem;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-soft);
+}
+
+.chip {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid color-mix(in srgb, var(--color-border), transparent 40%);
+    display: inline-block;
+}
+
+/* Colleghiamo le chip ai primitivi */
+.chip-brand-500 {
+    background: var(--brand-500);
+}
+
+.chip-brand-700 {
+    background: var(--brand-700);
+}
+
+.chip-accent-500 {
+    background: var(--accent-500);
+}
+
+.chip-gray-100 {
+    background: var(--gray-100);
+}
+
+.chip-gray-500 {
+    background: var(--gray-500);
+}
+
+.chip-gray-900 {
+    background: var(--gray-900);
+}
+
+.chip-success-500 {
+    background: var(--success-500);
+}
+
+.chip-danger-500 {
+    background: var(--danger-500);
+}
+
+.swatch-meta span {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+
+/* 10) CARD + DEMO SEMANTICA */
+
+.semantic-demo {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 1.2rem;
+}
+
+@media (max-width: 900px) {
+    .semantic-demo {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 1.3rem 1.4rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+}
+
+
+/* 
+   11) BOTTONI - ESEMPIO PERFETTO DI TOKEN SEMANTICI
+   
+   Qui si vede bene la teoria in pratica:
+   i bottoni non usano brand-500 direttamente, usano --color-primary e --color-primary-hover.
+*/
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+
+    padding: 0.65rem 0.95rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: 1px solid transparent;
+
+    transition: 160ms ease;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: var(--color-primary-contrast);
+    border-color: color-mix(in srgb, var(--color-primary), #000 10%);
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-hover);
+}
+
+.btn-primary:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--color-primary), transparent 60%);
+    outline-offset: 2px;
+}
+
+/* Bottone secondario semplice */
+.btn-ghost {
+    background: transparent;
+    color: var(--color-text);
+    border-color: var(--color-border);
+}
+
+.btn-ghost:hover {
+    background: color-mix(in srgb, var(--color-surface), var(--color-primary) 8%);
+}
+
+
+/* 12) STATI / FEEDBACK */
+
+.status {
+    padding: 0.7rem 0.85rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+}
+
+.status-success {
+    background: color-mix(in srgb, var(--color-success), transparent 88%);
+    border-color: color-mix(in srgb, var(--color-success), transparent 60%);
+}
+
+.status-danger {
+    background: color-mix(in srgb, var(--color-danger), transparent 88%);
+    border-color: color-mix(in srgb, var(--color-danger), transparent 60%);
+}
+
+
+/* 13) LISTE DIDATTICHE */
+
+.checklist {
+    padding-left: 1.1rem;
+}
+
+.checklist li {
+    margin: 0.35rem 0;
+}
+
+
+/* 14) SANDBOX TEMA SCURO VISIVO */
+
+.theme-sandbox {
+    color: var(--color-text);
+    margin-top: 1.5rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 1.4rem 1.4rem 1.6rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+}
