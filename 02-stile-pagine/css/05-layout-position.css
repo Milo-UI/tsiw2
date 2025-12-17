@@ -1,0 +1,173 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Stili custom */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #313130;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    /* margin-bottom: 1.5rem; */
+}
+
+h1 {
+    font-size: clamp(2.2rem, 3.4vw, 3rem);
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: .8rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/*
+    Il layout di una pagina web è la disposizione visiva degli elementi all'interno della pagina. Include la struttura e l'organizzazione degli elementi come testi, immagini, pulsanti, menu e altri componenti.
+
+    Ci sono delle proprietà CSS che ci permettono di controllare la posizione degli elementi sulla pagina e una di queste è position.
+
+    POSITION
+    Può avere 5 valori:
+
+        - static -> il valore di default di tutti gli elementi HTML. L'elemento segue il normale flusso del documento, venendo posizionato quindi in base all'ordine in cui appare nell'HTML. Non può essere spostato usando le proprietà top, right, bottom e left.
+
+        - relative -> Gli elementi con position: relative sono posizionati in relazione alla loro posizione originale nel flusso del documento. Possiamo usare le proprietà top, right, bottom e left per spostare l'elemento dalla sua posizione normale, ma lo spazio occupato dall'elemento rimane invariato nel flusso del documento.
+
+        - fixed -> Gli elementi con position: fixed sono posizionati rispetto alla finestra del browser. Vengono rimossi dal flusso del documento, ma la loro posizione è sempre relativa alla finestra della viewport.
+
+        - absolute -> Gli elementi con position: absolute sono posizionati rispetto al loro primo antenato non statico (cioè un elemento con position relative, absolute o fixed). Vengono rimossi dal flusso del documento come per fixed. Le proprietà top, right, bottom e left possono essere utilizzate per posizionarli a piacimento.
+
+        - sticky -> Gli elementi con position: sticky sono una combinazione di relative e fixed. Iniziano come relative e diventano fixed quando raggiungono una certa posizione durante lo scrolling. Rimangono nel flusso del documento fino a quando non raggiungono il punto specificato (definito dalle proprietà top, right, bottom e left), momento in cui si "attaccano" al viewport.
+    
+    Riassunto:
+
+    Valore      Descrizione
+    static      Posizionamento normale, non può essere spostato
+    relative    Posizionato rispetto alla sua posizione originale
+    absolute    Posizionato rispetto al primo antenato non static
+    fixed       Fisso rispetto alla finestra del browser
+    sticky      Comportamento misto tra relative e fixed
+
+    top:    distanza dal bordo superiore
+    right:  distanza dal bordo destro
+    bottom: distanza dal bordo inferiore
+    left:   distanza dal bordo sinistro
+*/
+
+main {
+    width: min(900px, 92vw);
+    margin: 0 auto;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+}
+
+.background {
+    height: 80px;
+    background-color: #d1d1d1;
+}
+
+.box {
+    height: 80px;
+    padding: .3rem 1rem;
+    background-color: #ffff7b;
+    border: 1px dashed #313131;
+}
+
+.box h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+}
+
+.relative {
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    /* Per fare in modo che sia sovrapposto a ciò che viene dopo */
+    z-index: 1;
+}
+
+.parent-absolute {
+    /* Deve avere un position diverso da static. 90% relative */
+    position: relative;
+    height: 500px;
+    padding: .3rem 1rem;
+    margin: 3rem 0;
+    background-color: #d1d1d1;
+}
+
+.absolute {
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sticky {
+    position: sticky;
+    top: 80px;
+    z-index: 2;
+}

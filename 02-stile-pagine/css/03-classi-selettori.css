@@ -1,0 +1,99 @@
+/*
+    Abbiamo visto i selettori di tipo, ovvero i selettori che vengono utilizzati per selezionare e applicare stili a tutti gli elementi di un determinato tipo (o tag).
+*/
+/* Tutti i tag P del documento avranno questo colore */
+/* p {
+    color: #545454;
+} */
+
+/*
+    Se volessimo prendere un singolo P specifico per dargli degli stili a parte?
+    Possiamo assegnargli una classe con l'attributo class="" e richiamarla nel foglio di stile con il nome che abbiamo deciso preceduto da un punto.
+
+    Assegno al P che mi interessa la classe error e da CSS la richiamo per dire che TUTTI gli elementi che posseggono questa classe dovranno avere le regole specificate.
+
+    Questo fa in modo che si possa definire lo stile di un componente, come un bottone, una volta sola e utilizzarlo quante volte vogliamo.
+*/
+/* .error {
+    color: red;
+} */
+
+/*
+    Se volessimo selezionare solo i paragrafi con la classe error, dovremmo fare un selettore più specifico
+*/
+p.error {
+    color: red;
+}
+
+p.success {
+    color: #07b95a;
+}
+
+p.success.feedback {
+    border: 1px dashed #07b95a;
+    padding: 10px;
+}
+
+body {
+    margin: 0;
+}
+
+/*
+    L'attributo id può essere utilizzato in CSS come selettore di un elemento.
+    Converrebbe evitare di usarli in CSS, perché vengono usati spesso per JS, in più hanno una specificità molto forte, quindi le regole assegnate sono più difficili da sovrascrivere.
+
+    Per creare un selettore di id facciamo come per le classi, ma invece del punto useremo il cancelletto.
+*/
+#content {
+    width: min(990px, 92vw);
+    margin: 0 auto;
+}
+
+/*
+    È possibile essere ancora più specifici sfruttando i selettori di discendenza. Possiamo sleezionare gli elementi figli di un elemento genitore.
+
+    Mettiamo casi di voler selezionare solo i P all'interno di un elemento DIV. Selezioniamo prima il genitore e poi selezioniamo quali figli ci interessano separando genitore e figli con uno spazio.
+*/
+/* Tutti i paragrafi che sono contenuti all'interno di un DIV */
+div p {
+    font-weight: bold;
+}
+
+a[href] {
+    background: #545454;
+}
+
+a[target="_blank"] {
+    background: yellow;
+}
+
+/* ----------------------- EREDITARIETÀ E SPECIFICITÀ ----------------------- */
+/*
+    Gli elementi HTML possono ereditare alcune proprietà CSS dai genitori, ma non tutte.
+*/
+section {
+    color: lightcoral;            /* ereditato */
+    border: 1px solid grey;       /* non ereditato */
+    margin: 40px;                   /* non ereditato */
+    font-weight: bold;              /* ereditato */
+}
+
+/* Possiamo forzare un elemento a ereditare le proprietà che altrimenti non erediterebbe dal genitore */
+section p {
+    border: inherit;
+    margin: inherit;
+    /* Questa regola sovrascriverà quella ereditata dal genitore, in quanto più specifica perché assegnata direttamente agli elementi interessati */
+    color: crimson;
+}
+
+/*
+    Visto che si chiama Cascading Style Sheet, se per sbaglio o volontariamente utilizziamo lo stesso selettore per definire uno stile già assegnato, ma con un valore diverso, vincerà sempre la regola che si trova più in basso nel foglio di stile.
+    Se però dovessimo togliere dal selettore 'section', vincerebbe la regola precedente, perché il selettore è più specifico.
+*/
+section p {
+    color: orange;
+}
+
+section {
+    background-color: aliceblue !important;
+}
