@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tastiere meccaniche</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+
+            <div class="header-top">
+                <div class="social">
+                    <a href="#!">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#!">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#!">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+
+                <img class="logo" src="img/logo.svg" alt="">
+            </div>
+
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#!">HOME</a>
+                    </li>
+                    <li>
+                        <a href="#!">MODELLI</a>
+                    </li>
+                    <li>
+                        <a href="#!">SERVIZI</a>
+                    </li>
+                    <li>
+                        <a href="#!">ASSISTENZA</a>
+                    </li>
+                    <li>
+                        <a href="#!">CONTATTI</a>
+                    </li>
+                    <li class="close-btn">
+                        <i class="fa-solid fa-xmark"></i>
+                    </li>
+                </ul>
+
+                <i class="open-btn fa-solid fa-bars"></i>
+            </nav>
+            
+        </div>
+    </header>
+
+    <section class="intro">
+        <div class="container">
+
+            <div class="hero">
+                <div class="claim">
+                    <h1>Titolo principale</h1>
+                    <h2>Lorem ipsum dolor sit amet</h2>
+                </div>
+                
+                <div class="articles">
+                    <div class="article">
+                        <img src="img/keyboards-2.png" alt="">
+                        <h3>TITOLO</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, laboriosam?
+                        </p>
+                    </div>
+                    <div class="article">
+                        <img src="img/keyboards-3.png" alt="">
+                        <h3>TITOLO</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, laboriosam?
+                        </p>
+                    </div>
+                    <div class="article">
+                        <img src="img/keyboards-4.png" alt="">
+                        <h3>TITOLO</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, laboriosam?
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+
+            <div class="feature">
+                <img src="img/keyboards-5.png" alt="">
+
+                <div class="feature-text">
+                    <h2>Lorem ipsum</h2>
+
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint hic ad porro nam sunt ipsam odio! Aliquam, est aspernatur! Minima eveniet cum ab facere nostrum labore, in ipsa ratione modi.
+                    </p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <img src="img/keyboards-6.png" alt="">
+
+                <div class="feature-text">
+                    <h2>Lorem ipsum</h2>
+
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint hic ad porro nam sunt ipsam odio! Aliquam, est aspernatur! Minima eveniet cum ab facere nostrum labore, in ipsa ratione modi.
+                    </p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <img src="img/keyboards-7.png" alt="">
+
+                <div class="feature-text">
+                    <h2>Lorem ipsum</h2>
+
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint hic ad porro nam sunt ipsam odio! Aliquam, est aspernatur! Minima eveniet cum ab facere nostrum labore, in ipsa ratione modi.
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+
+            <div class="footer-copy">
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit
+                </p>
+            </div>
+            
+        </div>
+    </footer>
+    
+    <script>
+        let navbar = document.querySelector('nav ul');
+        let openBtn = document.querySelector('.open-btn');
+        let closeBtn = document.querySelector('.close-btn');
+
+        openBtn.addEventListener('click', () => {
+            navbar.classList.add('open');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            navbar.classList.remove('open');
+        });
+    </script>
+</body>
+</html>
